@@ -11,6 +11,10 @@ import requests
 import os
 import json
 
+# Configure our application 
+#
+tensorflow_server_url = "http://172.17.0.3:8501/"
+
 # Initialize our Flask app.
 # NOTE: Flask is used to host our app on a web server, so that
 # we can call its functions over HTTP/HTTPS.
@@ -37,7 +41,7 @@ def predict():
     # Set the IP address of the Docker container with the tensorflow/serving
     # image to connect to.
     #
-    url = 'http://172.17.0.3:8501/v1/models/model/versions/1:predict'
+    url = tensorflow_server_url + 'v1/models/model/versions/1:predict'
 
     # Set the headers
     #
